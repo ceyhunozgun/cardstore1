@@ -1,0 +1,10 @@
+#!/bin/bash
+
+yum install java-1.8.0 -y
+yum remove java-1.7.0-openjdk -y
+
+mkdir app
+
+aws s3 cp --region eu-central-1 s3://cardstoredeploy/cardstore-0.0.1-SNAPSHOT.jar app/
+
+java -jar app/cardstore-0.0.1-SNAPSHOT.jar
